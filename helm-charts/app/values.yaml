@@ -7,8 +7,6 @@ replicaCount: 1
 image:
   repository: krishnakant002/spring-mongo-service:2.0
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  
 
 imagePullSecrets: []
 nameOverride: ""
