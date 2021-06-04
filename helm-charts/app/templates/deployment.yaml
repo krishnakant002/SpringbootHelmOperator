@@ -42,6 +42,4 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: mongo-conf 
-                  key: host    
-         
-          
+                  key: host
