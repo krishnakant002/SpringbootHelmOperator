@@ -32,7 +32,7 @@ spec:
   securityContext: {}
   service:
     port: 8080
-    type: ClusterIP
+    type: NodePort
   serviceAccount:
     annotations: {}
     create: true
