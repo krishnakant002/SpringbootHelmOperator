@@ -13,8 +13,8 @@ spec:
   fullnameOverride: ""
   image:
     pullPolicy: IfNotPresent
-    repository: nginx
-    tag: ""
+    repository: krishnakant002/spring-mongo-service:2.0
+    
   imagePullSecrets: []
   ingress:
     annotations: {}
@@ -31,7 +31,7 @@ spec:
   resources: {}
   securityContext: {}
   service:
-    port: 80
+    port: 8080
     type: ClusterIP
   serviceAccount:
     annotations: {}
