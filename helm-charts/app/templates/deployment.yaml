@@ -1,27 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "app.fullname" . }}
-  labels:
-    {{- include "app.labels" . | nindent 4 }}
+  name: spring-mongo-service
 spec:
-  replicas: {{ .Values.replicaCount }}
-  
   selector:
-    matchLabels:
-      {{- include "app.selectorLabels" . | nindent 6 }}
+      matchLabels:
+        app: spring-mongo-service
+  replicas: 1
   template:
     metadata:
-    {{- with .Values.podAnnotations }}
       labels:
-        {{- include "app.selectorLabels" . | nindent 8 }}
+        app: spring-mongo-service
     spec:
-     containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+      containers:
+        - name: spring-mongo-service
+          image: {{ .Values.image.repository }}
+          
           ports:
-            - containerPort: 8080
+          - containerPort: 8080
           env:
             - name: MONGO_USERNAME
               valueFrom:
@@ -43,4 +39,3 @@ spec:
                 configMapKeyRef:
                   name: mongo-conf 
                   key: host
-                  
